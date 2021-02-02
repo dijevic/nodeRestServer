@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
-    "nodemon":"server -e js,css,html,hbs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "diego vielma",
