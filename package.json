@@ -4,8 +4,7 @@
   "description": "rest server Practica",
   "main": "server.js",
   "scripts": {
-    "start": "server/server.js",
-
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "diego vielma",
