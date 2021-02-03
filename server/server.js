@@ -14,7 +14,6 @@ app.use(bodyParser.json())
 
 
 app.get('/usuario', function (req, res) {
-    req
   res.json('get usuario')
 })
 
