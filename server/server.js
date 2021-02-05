@@ -2,7 +2,7 @@ require('./config/config')
 const express = require('express');
 // Using Node.js `require()`
 const mongoose = require('mongoose');
-const colors   = require('colors');
+
 const bodyParser = require('body-parser')
 const app = express()
 
