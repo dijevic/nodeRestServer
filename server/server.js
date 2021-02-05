@@ -20,15 +20,14 @@ app.use( require('./routes/usuario'))
 
 const llamarBaseDatos = async()=>{
     
-await mongoose.connect(process.env.URLDB
-    ,{
+await mongoose.connect(process.env.URLDB,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
 },(err)=>{
     if(err) throw err;
-    console.log('base de datos online'.red)
+    console.log('base de datos online')
 
 })
 }
