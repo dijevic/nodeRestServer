@@ -1,55 +1,61 @@
 const mongoose = require('mongoose');
-let Schema     = mongoose.Schema;
-let uniqueValidator = require('mongoose-unique-validator');
-let rolesValidos = {
-    values : ['USER_ROLE','ADMIN_ROLE'],
-    message :'{VALUE} no es un rol valido'
-}
+const uniqueValidator = require('mongoose-unique-validator');
 
+
+let rolesValidos = {
+    values: ['ADMIN_ROLE', 'USER_ROLE'],
+    message: '{VALUE} no es un rol válido'
+};
+
+
+let Schema = mongoose.Schema;
 
 
 let usuarioSchema = new Schema({
-    nombre :{ 
-     type : 'string',
-     required : [true,'el nombre es necesario']},
-    email :{
-        type : 'string',
-        required : [true,'el correo es necesario'],
-        unique:true
+    nombre: {
+        type: String,
+        required: [true, 'El nombre es necesario']
     },
-    password :{
-        type : 'string',
-        required : [true,'el clave unica de usuario es necesaria']
+    email: {
+        type: String,
+        unique: true,
+        required: [true, 'El correo es necesario']
     },
-    img :{
-        required :false,
-        type :'string'
+    password: {
+        type: String,
+        required: [true, 'La contraseña es obligatoria']
     },
-    roles :{
-        type :'string',
-        default : 'USER_ROLE',
-        enum : rolesValidos
+    img: {
+        type: String,
+        required: false
     },
-    estado :{
-        type : 'boolean',
+    role: {
+        type: String,
+        default: 'USER_ROLE',
+        enum: rolesValidos
+    },
+    estado: {
+        type: Boolean,
         default: true
     },
-    google :{
-        default :false,
-        type : 'boolean'
+    google: {
+        type: Boolean,
+        default: false
     }
-    
-})
+});
 
-usuarioSchema.methods.toJSON = function(){
+
+usuarioSchema.methods.toJSON = function() {
+
     let user = this;
-    let userOBjecto = user.toObject();
-    delete userOBjecto.password
-    return userOBjecto
+    let userObject = user.toObject();
+    delete userObject.password;
 
+    return userObject;
 }
 
-usuarioSchema.plugin( uniqueValidator,{message :'Error, el {PATH} debe ser unico'})
+
+usuarioSchema.plugin(uniqueValidator, { message: '{PATH} debe de ser único' });
 
 
-module.exports =  mongoose.model('usuario',usuarioSchema)
+module.exports = mongoose.model('Usuario', usuarioSchema);
