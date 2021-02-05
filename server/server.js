@@ -18,6 +18,7 @@ app.use(bodyParser.json())
 app.use( require('./routes/usuario'))
 
 
+
 const llamarBaseDatos = async()=>{
     
 await mongoose.connect(process.env.URLDB,{

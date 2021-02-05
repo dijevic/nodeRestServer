@@ -1,5 +1,5 @@
 {
-  "name": "restserver",
+  "name": "resttserver",
   "version": "1.0.0",
   "description": "rest server Practica",
   "main": "server.js",
